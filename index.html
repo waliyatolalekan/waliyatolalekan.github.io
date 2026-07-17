@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Waliyat Olalekan | Web Application Security & Digital Forensics </title>
+    <title>Waliyat Olalekan | Web Application Security & Digital Forensics</title>
     <style>
         body {
             background-color: #0d1117;
@@ -17,12 +17,28 @@
             margin: 0 auto;
         }
         header {
-            border-bottom: 2px solid #238636;
+            /* Green border removed */
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
-        h1 { color: #238636; margin: 0 0 10px 0; }
-        h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+        h1 { 
+            color: #58a6ff; 
+            margin: 0 0 10px 0; 
+            font-size: 1.62rem; /* 1% larger than h2 (1.6rem) */
+        }
+        h2 { 
+            color: #388bfd; 
+            border-bottom: 1px solid #30363d; 
+            padding-bottom: 5px; 
+            font-size: 1.6rem; /* Decreased by 1 step */
+        }
+        h3 {
+            font-size: 1.2rem; /* Decreased by 1 step */
+            color: #c9d1d9;
+        }
+        p, li {
+            text-align: justify; /* Justified text */
+        }
         a { color: #58a6ff; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .project-card {
@@ -51,44 +67,52 @@
 <body>
     <div class="container">
         <header>
-            <p><strong>Waliyat Olalekan</strong> | Web Application Security & Digital Forensics</p>
-            <p> Application Security, Pentesting & Log Analysis</p>
-            <p><a href="https://github.com/waliyatolalekan" target="_blank">GitHub</a> | <a href="https://linkedin.com/in/www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank">LinkedIn</a> | <a href="mailto:your.email@example.com">walzlekan@gmail.com</a> | <a href="tel:+1234567890">+2348148473125</a></p>
- </header>
+            <h1>Waliyat Olalekan</h1>
+            <p><strong>Web Application Security & Digital Forensics Specialist</strong></p>
+            <p>Application Security, Pentesting & Log Analysis</p>
+            <p>
+                <a href="https://github.com/waliyatolalekan" target="_blank">GitHub</a> | 
+                <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank">LinkedIn</a> | 
+                <a href="mailto:walzlekan@gmail.com">walzlekan@gmail.com</a> | 
+                <a href="tel:+2348148473125">+234 814 847 3125</a>
+            </p>
+        </header>
+
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security focused web applications and web forensics lab to simulate attacks and identify indicators of compromise. I am skilled in Linux environment, analyzing threat domains and practice identifying security focused insights. I am passionate about threat detection, secure coding, and growing into a SOC Analyst role. .</p>
+            <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security-focused web applications and web forensics labs to simulate attacks and identify indicators of compromise. I am skilled in Linux environments, analyzing threat domains, and identifying security-focused insights. I am passionate about threat detection, secure coding, and growing into a SOC Analyst role.</p>
         </section>
 
         <section id="experience">
             <h2>Experience</h2>
             
             <div style="margin-bottom: 20px;">
-                <p style="margin: 0; color: #58a6ff;"><strong>Technical Research Intern at Cyberdeflex, Abuja, Nigeria.</strong></p>
-                <p style="margin: 0; font-size: 10px; color: #8b949e;">December, 2025 ‐ Present</p>
+                <p style="margin: 0; color: #58a6ff;"><strong>Technical Research Intern at Cyberdeflex, Abuja, Nigeria</strong></p>
+                <p style="margin: 0; font-size: 11px; color: #8b949e;">December 2025 ‐ Present</p>
                 <ul style="margin-top: 5px; padding-left: 20px;">
-                    <li>At Cyberdeflex, I map out the fundamental architecture of a technology of threat vector, understanding the underlying mechanics. I structure it into how it works, the business and technical impact and actionable mitigation strategies. In my threat research, I investigated and drafted reports on major localized breaches, specifically analyzing the BPE/NullSec Nigeria incident, the CIBN dark web forum database listing and the NNPC HMO/XP95 data exposure. My methodology involved treat intelligence triangulation: mapping out the attacker profiles such as analyzing the listing details provided by the threat actors, assessing the volume of exfiltrated data and verifying the specific data schemas leaked like patient identifiers or corporate financial data.</li>
+                    <li>Map out fundamental architecture of threat vectors to understand underlying attack mechanics, technical impact, and actionable mitigation strategies.</li>
+                    <li>Investigated and drafted intelligence reports on major localized breaches including the BPE/NullSec Nigeria incident, CIBN dark web forum database listings, and NNPC HMO data exposures.</li>
+                    <li>Utilized threat intelligence triangulation methodologies to map out attacker profiles, evaluate data schemas, and assess leakage volumes.</li>
                 </ul>
             </div>
 
             <div style="margin-bottom: 20px;">
-                <p style="margin: 0; color: #58a6ff;"><strong>Cybersecurity Analyst</strong></p>
-                <p style="margin: 0; font-size: 10px; color: #8b949e;">Independent, 2025 ‐ Present</p>
+                <p style="margin: 0; color: #58a6ff;"><strong>Cybersecurity Analyst (Independent Labs)</strong></p>
+                <p style="margin: 0; font-size: 11px; color: #8b949e;">2025 ‐ Present</p>
                 <ul style="margin-top: 5px; padding-left: 20px;">
-                    <li>Configured an Apache web server with custom local SSL/TLS certificates to secure a web security testing environment.</li>
-                    <li>Developed custom Python security automation tools utilizing requests and BeautifulSoup for header scanning and directory enumeration.</li>
-                    <li>Conducted vulnerability assessments using manual testing methodologies and automated tools like sqlmap.</li>
+                    <li>Configured an Apache web server with custom SSL/TLS certificates to secure a virtualized testing environment.</li>
+                    <li>Developed custom Python security automation tools utilizing the requests and BeautifulSoup libraries for automated security header scanning and directory enumeration.</li>
+                    <li>Conducted database vulnerability assessments utilizing SQLMap against local testing instances.</li>
                 </ul>
             </div>
-            
         </section>
 
         <section id="projects">
             <h2>Featured Projects</h2>
             
             <div class="project-card">
-                <h3> Webapp-pentest-methodology</h3>
-                <p>This project demonstrates a structured methodology for conducting authorized web application penetration testing using an OWASP Juice Shop lab environment. It combines hands-on security testing techniques including reconnaissance, JWT analysis, authorization (IDOR) assessment, and TTP security header evaluation with custom Python tools for security header scanning, directory enumeration and input reflection checking.</p>
+                <h3>Webapp-pentest-methodology</h3>
+                <p>This project demonstrates a structured methodology for conducting authorized web application penetration testing using an OWASP Juice Shop lab environment. It combines hands-on security testing techniques including reconnaissance, JWT analysis, authorization (IDOR) assessment, and TTP security header evaluation with custom Python tools for security header scanning, directory enumeration, and input reflection checking.</p>
                 <p>
                     <span class="tag">Kali Linux</span>
                     <span class="tag">Python 3</span>
@@ -99,7 +123,7 @@
 
             <div class="project-card">
                 <h3>Webapp-forensics-lab</h3>
-                <p>I designed a vulnerable web application for attack simulation and forensic analysis practice, simulated security incidents to understand investigation workflow, practiced identifying indicators of compromise in web environments and strengthened understanding of incident response fundamentals.</p>
+                <p>Designed a vulnerable web application for attack simulation and forensic analysis practice. Simulated security incidents to map investigation workflows, practiced identifying indicators of compromise (IoCs) in web server environments, and strengthened core incident response fundamentals.</p>
                 <p>
                     <span class="tag">Digital Forensics</span>
                     <span class="tag">Apache</span>
@@ -108,33 +132,33 @@
                 <a href="https://github.com/waliyatolalekan/webapp-forensics-lab" target="_blank">View Case Study &rarr;</a>
             </div>
 
-              <div class="project-card">
+            <div class="project-card">
                 <h3>dvwa-security-assessment</h3>
-                <p>This project demonstrates both offensive security techniques and defensive security controls, highlighting the importance of secure configuration, encryption, and forensic analysis in protecting modern web applications: network reconnaissance and vulnerability mapping using Nmap, discovery and testing of web vulnerabilities such as SQL injection and XSS, controlled exploitation using Metasploit, digital forensic analysis of server logs to identify attack traces, implementation of HTTPS encryption and TLS analysis with Wireshark, server hardening through service reduction, patching  and security configuration, post-hardening security reassessment to measure improvements.</p>
+                <p>This project demonstrates both offensive security techniques and defensive security controls, highlighting secure configuration, encryption, and forensic analysis. Includes network reconnaissance via Nmap, vulnerability mapping, SQLi/XSS exploration via Metasploit, log analysis, and implementation of HTTPS/TLS certificates monitored via Wireshark.</p>
                 <p>
-                    <span class="tag">Vulnerabiltiy testing</span>
+                    <span class="tag">Vulnerability Testing</span>
                     <span class="tag">DVWA</span>
                     <span class="tag">Metasploit</span>
                 </p>
                 <a href="https://github.com/waliyatolalekan/dvwa-security-assessment" target="_blank">View Case Study &rarr;</a>
             </div>
-            
         </section>
 
         <section id="education">
             <h2>Education & Certifications</h2>
             <div style="margin-bottom: 20px;">
-                <p style="margin: 0; color: #58a6ff;"><strong>Bachelor of Science/ Computer Science</strong></p>
+                <p style="margin: 0; color: #58a6ff;"><strong>Bachelor of Science in Computer Science</strong></p>
                 <p style="margin: 0; font-size: 13px; color: #8b949e;">University Of Port Harcourt | 2025</p>
             </div>
             <div>
                 <p style="margin: 0; color: #58a6ff;"><strong>Relevant Training & Badges</strong></p>
                 <ul style="margin-top: 5px; padding-left: 20px;">
-                    <li>Web Application Security & Digital Forensics course ongoing at International Cybersecurity and Digital Forensics Academy (ICDFA) </li>
-                    <li>Virtual privacy academy (Nigeria Data Protection Commission (NDPC))</li>
+                    <li>Web Application Security & Digital Forensics — International Cybersecurity and Digital Forensics Academy (ICDFA) (In Progress)</li>
+                    <li>Virtual Privacy Academy — Nigeria Data Protection Commission (NDPC)</li>
                 </ul>
             </div>
         </section>
+
         <footer>
             <p>Built with plain HTML/CSS. Hosted on GitHub Pages. © 2026</p>
         </footer>
