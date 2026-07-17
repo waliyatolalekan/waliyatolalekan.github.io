@@ -4,92 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waliyat Olalekan | Web Application Security & Digital Forensics</title>
+    <!-- Importing FontAwesome for clean tech stack icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --bg-main: #0d1117;
+            --bg-card: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --primary: #58a6ff; /* Clean Steel Blue */
+            --accent: #388bfd;  /* Deep Slate Blue */
+        }
+
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: Corbel, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Corbel, sans-serif;
             margin: 0;
             padding: 40px 20px;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
-        header {
-            /* Green border removed */
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+
+        /* Profile Layout Block */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
         }
-        h1 { 
-            color: #58a6ff; 
-            margin: 0 0 10px 0; 
-            font-size: 1.62rem; /* 1% larger than h2 (1.6rem) */
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
         }
-        h2 { 
-            color: #388bfd; 
-            border-bottom: 1px solid #30363d; 
-            padding-bottom: 5px; 
-            font-size: 1.6rem; /* Decreased by 1 step */
+
+        .profile-info h1 {
+            margin: 0 0 5px 0;
+            color: var(--text-main);
+            font-size: 1.8rem;
         }
-        h3 {
-            font-size: 1.2rem; /* Decreased by 1 step */
-            color: #c9d1d9;
+
+        .profile-info p {
+            margin: 5px 0;
+            text-align: left;
         }
-        p, li {
-            text-align: justify; /* Justified text */
+
+        .contact-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.9rem;
         }
-        a { color: #58a6ff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .project-card {
-            background: #161b22;
-            border: 1px solid #30363d;
+
+        .contact-links a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Action Buttons */
+        .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: var(--bg-main) !important;
+            padding: 8px 16px;
             border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: opacity 0.2s;
         }
-        .tag {
-            background: #21262d;
-            color: #8b949e;
-            padding: 3px 8px;
-            font-size: 10px;
-            border-radius: 3px;
-            margin-right: 5px;
+        .btn-cv:hover {
+            opacity: 0.9;
+            text-decoration: none !important;
         }
-        footer {
-            margin-top: 50px;
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            font-size: 1.4rem;
+            margin-top: 40px;
+        }
+
+        p, li {
+            text-align: justify;
+            color: var(--text-main);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Tech Stack Grid Styling */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
             text-align: center;
-            font-size: 10px;
-            color: #8b949e;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tech-item i {
+            display: block;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .tag {
+            background: var(--bg-main);
+            color: var(--text-muted);
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 4px;
+            margin-right: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* Responsive Design tweaks for mobile devices */
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-info p {
+                text-align: center;
+            }
+            .contact-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Waliyat Olalekan</h1>
-            <p><strong>Web Application Security & Digital Forensics Specialist</strong></p>
-            <p>Application Security, Pentesting & Log Analysis</p>
-            <p>
-                <a href="https://github.com/waliyatolalekan" target="_blank">GitHub</a> | 
-                <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank">LinkedIn</a> | 
-                <a href="mailto:walzlekan@gmail.com">walzlekan@gmail.com</a> | 
-                <a href="tel:+2348148473125">+234 814 847 3125</a>
-            </p>
+        
+        <!-- HEADER PROFILE BLOCK -->
+        <header class="profile-card">
+            <!-- Looks for the profile.jpg file you uploaded -->
+            <img src="profile.jpg" alt="Waliyat Olalekan" class="profile-img" onerror="this.style.display='none'">
+            <div class="profile-info">
+                <h1>Waliyat Olalekan</h1>
+                <p><strong>Web Application Security & Digital Forensics Specialist</strong></p>
+                
+                <div class="contact-links">
+                    <a href="https://github.com/waliyatolalekan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:walzlekan@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="tel:+2348148473125"><i class="fas fa-phone"></i> +234 814 847 3125</a>
+                </div>
+
+                <!-- CV DOWNLOAD BUTTON -->
+                <a href="Waliyat_Olalekan_CV.pdf" download class="btn-cv">
+                    <i class="fas fa-file-download"></i> Download CV / Resume
+                </a>
+            </div>
         </header>
 
+        <!-- ABOUT ME -->
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security-focused web applications and web forensics labs to simulate attacks and identify indicators of compromise. I am skilled in Linux environments, analyzing threat domains, and identifying security-focused insights. I am passionate about threat detection, secure coding, and growing into a SOC Analyst role.</p>
+            <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security-focused web applications and web forensics labs to simulate attacks and identify indicators of compromise. I am skilled in Linux environments, analyzing threat domains, and identifying security-focused insights. I am passionate about threat detection, secure coding, and growing into an Information Security Professional.</p>
         </section>
 
+        <!-- TECH STACK GRID -->
+        <section id="tech-stack">
+            <h2>Technical Stack & Tools</h2>
+            <div class="tech-grid">
+                <div class="tech-item"><i class="fab fa-linux"></i>Linux / Kali</div>
+                <div class="tech-item"><i class="fab fa-python"></i>Python 3</div>
+                <div class="tech-item"><i class="fab fa-docker"></i>Docker Containers</div>
+                <div class="tech-item"><i class="fas fa-terminal"></i>Bash Scripting</div>
+                <div class="tech-item"><i class="fas fa-server"></i>Apache / Nginx</div>
+                <div class="tech-item"><i class="fas fa-shield-alt"></i>OWASP Top 10</div>
+                <div class="tech-item"><i class="fas fa-search"></i>Apache Logs</div>
+                <div class="tech-item"><i class="fas fa-vulnerabiltiy testbed"></i>OWASP Juice Shop</div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
         <section id="experience">
             <h2>Experience</h2>
-            
             <div style="margin-bottom: 20px;">
-                <p style="margin: 0; color: #58a6ff;"><strong>Technical Research Intern at Cyberdeflex, Abuja, Nigeria</strong></p>
-                <p style="margin: 0; font-size: 11px; color: #8b949e;">December 2025 ‐ Present</p>
-                <ul style="margin-top: 5px; padding-left: 20px;">
+                <p style="margin: 0; color: var(--primary);"><strong>Technical Research Intern at Cyberdeflex, Abuja, Nigeria</strong></p>
+                <p style="margin: 0; font-size: 11px; color: var(--text-muted);">December 2025 ‐ Present</p>
+                <ul style="margin-top: 5px;">
                     <li>Map out fundamental architecture of threat vectors to understand underlying attack mechanics, technical impact, and actionable mitigation strategies.</li>
                     <li>Investigated and drafted intelligence reports on major localized breaches including the BPE/NullSec Nigeria incident, CIBN dark web forum database listings, and NNPC HMO data exposures.</li>
                     <li>Utilized threat intelligence triangulation methodologies to map out attacker profiles, evaluate data schemas, and assess leakage volumes.</li>
@@ -97,62 +247,60 @@
             </div>
 
             <div style="margin-bottom: 20px;">
-                <p style="margin: 0; color: #58a6ff;"><strong>Cybersecurity Analyst (Independent Labs)</strong></p>
-                <p style="margin: 0; font-size: 11px; color: #8b949e;">2025 ‐ Present</p>
-                <ul style="margin-top: 5px; padding-left: 20px;">
+                <p style="margin: 0; color: var(--primary);"><strong>Cybersecurity Analyst (Independent Labs)</strong></p>
+                <p style="margin: 0; font-size: 11px; color: var(--text-muted);">2025 ‐ Present</p>
+                <ul style="margin-top: 5px;">
                     <li>Configured an Apache web server with custom SSL/TLS certificates to secure a virtualized testing environment.</li>
-                    <li>Developed custom Python security automation tools utilizing the requests and BeautifulSoup libraries for automated security header scanning and directory enumeration.</li>
+                    <li>Developed custom Python security automation tools utilizing the requests for automated security header scanning and directory enumeration.</li>
                     <li>Conducted database vulnerability assessments utilizing SQLMap against local testing instances.</li>
                 </ul>
             </div>
         </section>
 
+        <!-- FEATURED PROJECTS -->
         <section id="projects">
             <h2>Featured Projects</h2>
             
             <div class="project-card">
                 <h3>Webapp-pentest-methodology</h3>
                 <p>This project demonstrates a structured methodology for conducting authorized web application penetration testing using an OWASP Juice Shop lab environment. It combines hands-on security testing techniques including reconnaissance, JWT analysis, authorization (IDOR) assessment, and TTP security header evaluation with custom Python tools for security header scanning, directory enumeration, and input reflection checking.</p>
-                <p>
+                <div style="margin-top: 15px; margin-bottom: 15px;">
                     <span class="tag">Kali Linux</span>
                     <span class="tag">Python 3</span>
                     <span class="tag">Docker</span>
-                </p>
+                </div>
                 <a href="https://github.com/waliyatolalekan/webapp-pentest-methodology" target="_blank">View Case Study &rarr;</a>
             </div>
 
             <div class="project-card">
                 <h3>Webapp-forensics-lab</h3>
                 <p>Designed a vulnerable web application for attack simulation and forensic analysis practice. Simulated security incidents to map investigation workflows, practiced identifying indicators of compromise (IoCs) in web server environments, and strengthened core incident response fundamentals.</p>
-                <p>
+                <div style="margin-top: 15px; margin-bottom: 15px;">
                     <span class="tag">Digital Forensics</span>
                     <span class="tag">Apache</span>
                     <span class="tag">Linux logs</span>
-                </p>
+                </div>
                 <a href="https://github.com/waliyatolalekan/webapp-forensics-lab" target="_blank">View Case Study &rarr;</a>
             </div>
 
             <div class="project-card">
                 <h3>dvwa-security-assessment</h3>
                 <p>This project demonstrates both offensive security techniques and defensive security controls, highlighting secure configuration, encryption, and forensic analysis. Includes network reconnaissance via Nmap, vulnerability mapping, SQLi/XSS exploration via Metasploit, log analysis, and implementation of HTTPS/TLS certificates monitored via Wireshark.</p>
-                <p>
+                <div style="margin-top: 15px; margin-bottom: 15px;">
                     <span class="tag">Vulnerability Testing</span>
                     <span class="tag">DVWA</span>
                     <span class="tag">Metasploit</span>
-                </p>
+                </div>
                 <a href="https://github.com/waliyatolalekan/dvwa-security-assessment" target="_blank">View Case Study &rarr;</a>
             </div>
         </section>
 
-        <section id="education">
-            <h2>Education & Certifications</h2>
-            <div style="margin-bottom: 20px;">
-                <p style="margin: 0; color: #58a6ff;"><strong>Bachelor of Science in Computer Science</strong></p>
-                <p style="margin: 0; font-size: 13px; color: #8b949e;">University Of Port Harcourt | 2025</p>
-            </div>
+        <!-- CERTIFICATIONS -->
+        <section id="certifications">
+            <h2>Certifications</h2>
             <div>
-                <p style="margin: 0; color: #58a6ff;"><strong>Relevant Training & Badges</strong></p>
-                <ul style="margin-top: 5px; padding-left: 20px;">
+                <p style="margin: 0; color: var(--primary);"><strong>Relevant Training & Badges</strong></p>
+                <ul style="margin-top: 5px;">
                     <li>Web Application Security & Digital Forensics — International Cybersecurity and Digital Forensics Academy (ICDFA) (In Progress)</li>
                     <li>Virtual Privacy Academy — Nigeria Data Protection Commission (NDPC)</li>
                 </ul>
@@ -160,7 +308,7 @@
         </section>
 
         <footer>
-            <p>Built with plain HTML/CSS. Hosted on GitHub Pages. © 2026</p>
+            <p>Hosted via GitHub Pages. © 2026</p>
         </footer>
     </div>
 </body>
