@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         :root {
-            --bg-main: #0d1117;
-            --bg-card: #161b22;
-            --border-color: #30363d;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --primary: #58a6ff; /* Clean Steel Blue */
-            --accent: #388bfd;  /* Deep Slate Blue */
+            --bg-main: #0b0914;      /* Volcanic purple-black */
+            --bg-card: #141226;      /* Subtle dark orchid-gray */
+            --border-color: #3c345c; /* Muted violet-gray */
+            --text-main: #e2def2;    /* Crisp soft white with slight violet undertone */
+            --text-muted: #8a82a6;   /* Muted lavender-gray */
+            --primary: #9d4edf;      /* Sleek medium purple */
+            --accent: #b175e7;       /* Lighter purple for structural highlighting */
         }
 
         body {
@@ -24,13 +24,43 @@
             color: var(--text-main);
             font-family: 'Segoe UI', Corbel, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             line-height: 1.6;
+        }
+
+        /* Fixed Navigation Bar at the top of the website */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(20, 18, 38, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary);
         }
 
         .container {
             max-width: 850px;
-            margin: 0 auto;
+            margin: 100px auto 40px auto; /* Margin top leaves room for the fixed navbar */
+            padding: 0 20px;
         }
 
         /* Profile Layout Block */
@@ -91,16 +121,16 @@
             align-items: center;
             gap: 8px;
             background: var(--primary);
-            color: var(--bg-main) !important;
+            color: #ffffff !important;
             padding: 12px 24px;
             border-radius: 6px;
             font-weight: bold;
             margin-top: 15px;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, background-color 0.2s;
         }
         .btn-cv:hover {
-            opacity: 0.9;
+            background: var(--accent);
             text-decoration: none !important;
         }
 
@@ -119,6 +149,21 @@
 
         ul {
             padding-left: 20px;
+        }
+
+        /* Tab Content Panel Control */
+        .tab-section {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Dynamic, Bouncy Tech Stack Grid Styling */
@@ -140,10 +185,9 @@
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
         }
 
-        /* Added interactive layout bounce configuration */
         .tech-item:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
             border-color: var(--primary);
         }
 
@@ -168,6 +212,17 @@
             font-size: 1.2rem;
         }
 
+        .project-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-card a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
         .tag {
             background: var(--bg-main);
             color: var(--text-muted);
@@ -185,7 +240,7 @@
             border-radius: 12px;
             padding: 30px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         footer {
@@ -206,33 +261,43 @@
             .profile-info p {
                 text-align: center;
             }
-            .contact-links {
-                justify-content: center;
+            nav {
+                gap: 12px;
+            }
+            nav a {
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- TOP WEBSITE NAVIGATION BAR -->
+    <nav>
+        <a onclick="showSection('home')" id="nav-home" class="active">Home</a>
+        <a onclick="showSection('about')" id="nav-about">About Me</a>
+        <a onclick="showSection('experience')" id="nav-experience">Experience</a>
+        <a onclick="showSection('projects')" id="nav-projects">Projects</a>
+        <a onclick="showSection('certifications')" id="nav-certifications">Certifications</a>
+        <a onclick="showSection('contact')" id="nav-contact">Contact</a>
+    </nav>
+
     <div class="container">
         
         <!-- HEADER PROFILE BLOCK -->
         <header class="profile-card">
-            <!-- Looks for the profile.jpg file you uploaded -->
-            <img src="profile.pic.jpg" alt="Waliyat Olalekan" class="profile-img" onerror="this.style.display='none'">
+            <img src="profile.jpg" alt="Waliyat Olalekan" class="profile-img" onerror="this.style.display='none'">
             <div class="profile-info">
                 <h1>Waliyat Olalekan</h1>
                 <p><strong>Web Application Security & Digital Forensics Specialist</strong></p>
             </div>
         </header>
 
-        <!-- ABOUT ME -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security-focused web applications and web forensics labs to simulate attacks and identify indicators of compromise. I am skilled in Linux environments, analyzing threat domains, and identifying security-focused insights. I am passionate about threat detection, secure coding, and growing into an Information Security Professional.</p>
-        </section>
-
-        <!-- TECH STACK GRID WITH LIFELIKE COLORED ICONS -->
-        <section id="tech-stack">
+        <!-- SECTION 1: HOME PAGE -->
+        <main id="sec-home" class="tab-section active">
+            <h2>Welcome</h2>
+            <p>Welcome to my security portfolio interface. I build, test, and perform digital forensics validation on web applications to locate vulnerability footprints and map Indicators of Compromise (IoCs). Use the navigation bar above to view my dedicated profiles, ongoing research vectors, and technical case studies.</p>
+            
             <h2>Technical Stack & Tools</h2>
             <div class="tech-grid">
                 <div class="tech-item"><i class="devicon-linux-plain" style="color: #FCC624;"></i>Linux / Kali</div>
@@ -244,10 +309,16 @@
                 <div class="tech-item"><i class="fas fa-search" style="color: #00FA9A;"></i>Apache Logs</div>
                 <div class="tech-item"><i class="fas fa-laptop-code" style="color: #58A6FF;"></i>OWASP Juice Shop</div>
             </div>
+        </main>
+
+        <!-- SECTION 2: ABOUT ME PAGE -->
+        <section id="sec-about" class="tab-section">
+            <h2>About Me</h2>
+            <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security-focused web applications and web forensics labs to simulate attacks and identify indicators of compromise. I am skilled in Linux environments, analyzing threat domains, and identifying security-focused insights. I am passionate about threat detection, secure coding, and growing into an Information Security Professional.</p>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section id="experience">
+        <!-- SECTION 3: EXPERIENCE PAGE -->
+        <section id="sec-experience" class="tab-section">
             <h2>Experience</h2>
             <div style="margin-bottom: 20px;">
                 <p style="margin: 0; color: var(--primary);"><strong>Technical Research Intern at Cyberdeflex, Abuja, Nigeria</strong></p>
@@ -270,8 +341,8 @@
             </div>
         </section>
 
-        <!-- FEATURED PROJECTS -->
-        <section id="projects">
+        <!-- SECTION 4: PROJECTS PAGE -->
+        <section id="sec-projects" class="tab-section">
             <h2>Featured Projects</h2>
             
             <div class="project-card">
@@ -308,8 +379,8 @@
             </div>
         </section>
 
-        <!-- CERTIFICATIONS -->
-        <section id="certifications">
+        <!-- SECTION 5: CERTIFICATIONS PAGE -->
+        <section id="sec-certifications" class="tab-section">
             <h2>Certifications</h2>
             <div>
                 <p style="margin: 0; color: var(--primary);"><strong>Relevant Training & Badges</strong></p>
@@ -320,26 +391,45 @@
             </div>
         </section>
 
-        <!-- REPOSITIONED AND SECURED CONTACT / RESUME DISCOVERY BOX -->
-        <section id="contact" class="contact-section">
-            <h2>Contact & Credentials</h2>
-            <p style="color: var(--text-muted); text-align: center;">I am open to new projects and opportunities. Let's connect and discuss how we can work together.</p>
-            <div class="contact-links" style="justify-content: center; margin-top: 25px; margin-bottom: 25px;">
-                <a href="https://github.com/waliyatolalekan" target="_blank"><i class="fab fa-github" style="color: #ffffff;"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank"><i class="fab fa-linkedin" style="color: #0077b5;"></i> LinkedIn</a>
-                <a href="mailto:walzlekan@gmail.com"><i class="fas fa-envelope" style="color: #ea4335;"></i> Email</a>
-                <a href="tel:+2348148473125"><i class="fas fa-phone" style="color: #34a853;"></i> +234 814 847 3125</a>
-            </div>
+        <!-- SECTION 6: CONTACT PAGE -->
+        <section id="sec-contact" class="tab-section">
+            <div class="contact-section">
+                <h2>Contact & Credentials</h2>
+                <p style="color: var(--text-muted); text-align: center;">Establish network communications or review my verification credentials details below.</p>
+                <div class="contact-links" style="justify-content: center; margin-top: 25px; margin-bottom: 25px;">
+                    <a href="https://github.com/waliyatolalekan" target="_blank"><i class="fab fa-github" style="color: #ffffff;"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank"><i class="fab fa-linkedin" style="color: #0077b5;"></i> LinkedIn</a>
+                    <a href="mailto:walzlekan@gmail.com"><i class="fas fa-envelope" style="color: #ea4335;"></i> Email</a>
+                    <a href="tel:+2348148473125"><i class="fas fa-phone" style="color: #34a853;"></i> +234 814 847 3125</a>
+                </div>
 
-            <!-- Secured Relative-path reference download handler -->
-            <a href="./Waliyat_Olalekan_CV.pdf" download="Waliyat_Olalekan_CV.pdf" class="btn-cv">
-                <i class="fas fa-file-download"></i> Download CV / Resume
-            </a>
+                <!-- Secured Relative-path reference download handler -->
+                <a href="./Waliyat_Olalekan_CV.pdf" download="Waliyat_Olalekan_CV.pdf" class="btn-cv">
+                    <i class="fas fa-file-download"></i> Download CV / Resume
+                </a>
+            </div>
         </section>
 
         <footer>
             <p>Hosted via GitHub Pages. © 2026</p>
         </footer>
     </div>
+
+    <!-- Multi-Section Structural Controller Script -->
+    <script>
+        function showSection(sectionId) {
+            // Locate and hide all text view components
+            const sections = document.querySelectorAll('.tab-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Remove highlighted states from links
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Render selected layout target element active
+            document.getElementById('sec-' + sectionId).classList.add('active');
+            document.getElementById('nav-' + sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
