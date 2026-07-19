@@ -6,6 +6,8 @@
     <title>Waliyat Olalekan | Web Application Security & Digital Forensics</title>
     <!-- Importing FontAwesome for clean tech stack icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Devicon development package for vibrant, authentic brand colors -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         :root {
             --bg-main: #0d1117;
@@ -71,11 +73,16 @@
         }
 
         .contact-links a {
-            color: var(--primary);
+            color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        
+        .contact-links a:hover {
+            color: var(--primary);
         }
 
         /* Action Buttons */
@@ -85,10 +92,11 @@
             gap: 8px;
             background: var(--primary);
             color: var(--bg-main) !important;
-            padding: 8px 16px;
+            padding: 12px 24px;
             border-radius: 6px;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
+            text-decoration: none;
             transition: opacity 0.2s;
         }
         .btn-cv:hover {
@@ -113,7 +121,7 @@
             padding-left: 20px;
         }
 
-        /* Tech Stack Grid Styling */
+        /* Dynamic, Bouncy Tech Stack Grid Styling */
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -124,17 +132,24 @@
         .tech-item {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 15px;
             text-align: center;
             font-size: 0.9rem;
             font-weight: 500;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        }
+
+        /* Added interactive layout bounce configuration */
+        .tech-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary);
         }
 
         .tech-item i {
             display: block;
-            font-size: 2rem;
-            color: var(--primary);
+            font-size: 2.2rem;
             margin-bottom: 8px;
         }
 
@@ -161,6 +176,16 @@
             border-radius: 4px;
             margin-right: 5px;
             border: 1px solid var(--border-color);
+        }
+
+        /* Clean isolated bottom section for contacts */
+        .contact-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
         }
 
         footer {
@@ -193,22 +218,10 @@
         <!-- HEADER PROFILE BLOCK -->
         <header class="profile-card">
             <!-- Looks for the profile.jpg file you uploaded -->
-            <img src="profile.jpg" alt="Waliyat Olalekan" class="profile-img" onerror="this.style.display='none'">
+            <img src="profile.pic.jpg" alt="Waliyat Olalekan" class="profile-img" onerror="this.style.display='none'">
             <div class="profile-info">
                 <h1>Waliyat Olalekan</h1>
                 <p><strong>Web Application Security & Digital Forensics Specialist</strong></p>
-                
-                <div class="contact-links">
-                    <a href="https://github.com/waliyatolalekan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:walzlekan@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="tel:+2348148473125"><i class="fas fa-phone"></i> +234 814 847 3125</a>
-                </div>
-
-                <!-- CV DOWNLOAD BUTTON -->
-                <a href="Waliyat_Olalekan_CV.pdf" download class="btn-cv">
-                    <i class="fas fa-file-download"></i> Download CV / Resume
-                </a>
             </div>
         </header>
 
@@ -218,18 +231,18 @@
             <p>I am a cybersecurity enthusiast with hands‐on experience building and documenting security-focused web applications and web forensics labs to simulate attacks and identify indicators of compromise. I am skilled in Linux environments, analyzing threat domains, and identifying security-focused insights. I am passionate about threat detection, secure coding, and growing into an Information Security Professional.</p>
         </section>
 
-        <!-- TECH STACK GRID -->
+        <!-- TECH STACK GRID WITH LIFELIKE COLORED ICONS -->
         <section id="tech-stack">
             <h2>Technical Stack & Tools</h2>
             <div class="tech-grid">
-                <div class="tech-item"><i class="fab fa-linux"></i>Linux / Kali</div>
-                <div class="tech-item"><i class="fab fa-python"></i>Python 3</div>
-                <div class="tech-item"><i class="fab fa-docker"></i>Docker Containers</div>
-                <div class="tech-item"><i class="fas fa-terminal"></i>Bash Scripting</div>
-                <div class="tech-item"><i class="fas fa-server"></i>Apache / Nginx</div>
-                <div class="tech-item"><i class="fas fa-shield-alt"></i>OWASP Top 10</div>
-                <div class="tech-item"><i class="fas fa-search"></i>Apache Logs</div>
-                <div class="tech-item"><i class="fas fa-vulnerabiltiy testbed"></i>OWASP Juice Shop</div>
+                <div class="tech-item"><i class="devicon-linux-plain" style="color: #FCC624;"></i>Linux / Kali</div>
+                <div class="tech-item"><i class="devicon-python-plain" style="color: #3776AB;"></i>Python 3</div>
+                <div class="tech-item"><i class="devicon-docker-plain" style="color: #2496ED;"></i>Docker Containers</div>
+                <div class="tech-item"><i class="devicon-bash-plain" style="color: #4EAA25;"></i>Bash Scripting</div>
+                <div class="tech-item"><i class="devicon-apache-plain" style="color: #D22128;"></i>Apache / Nginx</div>
+                <div class="tech-item"><i class="fas fa-shield-alt" style="color: #E24A35;"></i>OWASP Top 10</div>
+                <div class="tech-item"><i class="fas fa-search" style="color: #00FA9A;"></i>Apache Logs</div>
+                <div class="tech-item"><i class="fas fa-laptop-code" style="color: #58A6FF;"></i>OWASP Juice Shop</div>
             </div>
         </section>
 
@@ -305,6 +318,23 @@
                     <li>Virtual Privacy Academy — Nigeria Data Protection Commission (NDPC)</li>
                 </ul>
             </div>
+        </section>
+
+        <!-- REPOSITIONED AND SECURED CONTACT / RESUME DISCOVERY BOX -->
+        <section id="contact" class="contact-section">
+            <h2>Contact & Credentials</h2>
+            <p style="color: var(--text-muted); text-align: center;">I am open to new projects and opportunities. Let's connect and discuss how we can work together.</p>
+            <div class="contact-links" style="justify-content: center; margin-top: 25px; margin-bottom: 25px;">
+                <a href="https://github.com/waliyatolalekan" target="_blank"><i class="fab fa-github" style="color: #ffffff;"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/waliyat-olalekan-2097422b6" target="_blank"><i class="fab fa-linkedin" style="color: #0077b5;"></i> LinkedIn</a>
+                <a href="mailto:walzlekan@gmail.com"><i class="fas fa-envelope" style="color: #ea4335;"></i> Email</a>
+                <a href="tel:+2348148473125"><i class="fas fa-phone" style="color: #34a853;"></i> +234 814 847 3125</a>
+            </div>
+
+            <!-- Secured Relative-path reference download handler -->
+            <a href="./Waliyat Olalekan CV.pdf" download="Waliyat Olalekan CV.pdf" class="btn-cv">
+                <i class="fas fa-file-download"></i> Download CV
+            </a>
         </section>
 
         <footer>
